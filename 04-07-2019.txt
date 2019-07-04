@@ -1,0 +1,142 @@
+import java.util.List;
+import java.util.Map;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import uk.ac.cam.cl.databases.moviedb.MovieDB;
+
+
+public class Movie {
+    private int id;
+    private String title;
+    private int year;
+    private List<CreditActor> actors;
+    private List<CreditPerson> cinematographers;
+    private List<CreditPerson> composers;
+    private List<CreditPerson> costumeDesigners;
+    private List<CreditPerson> directors;
+    private List<CreditPerson> editors;
+    private List<CreditPerson> producers;
+    private List<CreditPerson> productionDesigners;
+    private List<CreditWriter> writers;
+    private List<Certificate> certificates;
+    private List<ColorInfo> colorInfo;
+    private List<String> genres;
+    private List<String> keywords;
+    private List<Language> languages;
+    private List<Location> locations;
+    private Map<String, List<ReleaseDate>> releaseDates;
+    private List<RunningTime> runningTimes;
+
+    static final Gson JSON_CODEC = new GsonBuilder()
+            .setPrettyPrinting()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create();
+
+   
+    public static Movie fromJson(String json) {
+        return JSON_CODEC.fromJson(json, Movie.class);
+    }
+
+ 
+    @Override
+    public String toString() {
+        return JSON_CODEC.toJson(this);
+    }
+
+   
+    public int getId() {
+        return id;
+    }
+
+  
+    public String getTitle() {
+        return title;
+    }
+
+   
+    public int getYear() {
+        return year;
+    }
+
+  
+    public List<CreditActor> getActors() {
+        return actors;
+    }
+
+    public List<CreditPerson> getCinematographers() {
+        return cinematographers;
+    }
+
+    public List<CreditPerson> getComposers() {
+        return composers;
+    }
+
+    public List<CreditPerson> getCostumeDesigners() {
+        return costumeDesigners;
+    }
+
+   
+    public List<CreditPerson> getDirectors() {
+        return directors;
+    }
+
+  
+    public List<CreditPerson> getEditors() {
+        return editors;
+    }
+
+   
+    public List<CreditPerson> getProducers() {
+        return producers;
+    }
+
+   
+    public List<CreditPerson> getProductionDesigners() {
+        return productionDesigners;
+    }
+
+    
+    public List<CreditWriter> getWriters() {
+        return writers;
+    }
+
+   
+    public List<Certificate> getCertificates() {
+        return certificates;
+    }
+
+   
+    public List<ColorInfo> getColorInfo() {
+        return colorInfo;
+    }
+
+   
+    public List<String> getGenres() {
+        return genres;
+    }
+
+    
+    public List<String> getKeywords() {
+        return keywords;
+    }
+
+   
+    public List<Language> getLanguages() {
+        return languages;
+    }
+
+    
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public Map<String, List<ReleaseDate>> getReleaseDates() {
+        return releaseDates;
+    }
+
+   
+    public List<RunningTime> getRunningTimes() {
+        return runningTimes;
+    }
+}
